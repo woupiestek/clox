@@ -500,7 +500,7 @@ static InterpretResult run()
     case OP_JUMP_IF_FALSE:
     {
       uint16_t offset = READ_SHORT();
-      if (isFalsey(peek(0))) // todo: remove condition
+      if (isFalsey(peek(0)))
         frame->ip += offset;
       break;
     }

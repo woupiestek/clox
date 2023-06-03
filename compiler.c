@@ -291,12 +291,6 @@ static void endScope()
   }
 }
 
-static void expression();
-static void statement();
-static void declaration();
-static ParseRule *getRule(TokenType type);
-static void parsePrecedence(Precedence precedence);
-
 static uint8_t identifierConstant(Token *name)
 {
   return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
@@ -395,6 +389,12 @@ static void declareVariable()
   }
   addLocal(*name);
 }
+
+static void expression();
+static void statement();
+static void declaration();
+static ParseRule *getRule(TokenType type);
+static void parsePrecedence(Precedence precedence);
 
 static uint8_t argumentList()
 {
